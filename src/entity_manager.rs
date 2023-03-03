@@ -27,6 +27,7 @@ impl EntityManager {
     }
 
     pub fn remove_entity(&mut self, entity_id: Entity) -> Result<(), EntityManagementError>{
+        //wrong need to find diffent method
         let index = match self.entitys.iter().find(|&&entity| entity == entity_id) {
             Some(i) => *i,
             None => {
@@ -41,6 +42,9 @@ impl EntityManager {
         self.entitys.clone()
     }
 
+    pub fn is_alive(&self, entity_id: Entity) -> bool {
+        self.entitys.contains(&entity_id)
+    }
 
 
 }
